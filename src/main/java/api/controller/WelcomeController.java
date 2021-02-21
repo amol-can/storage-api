@@ -32,7 +32,7 @@ public class WelcomeController {
                     new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
             );
         } catch (Exception ex) {
-            throw new Exception("inavalid username/password");
+            throw new Exception("invalid username/password");
         }
         return ResponseEntity.ok(new AuthenticationResponse(jwtUtil.generateToken(authRequest.getUserName())));
     }
