@@ -53,4 +53,11 @@ public class JwtFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
+
+   /* @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        System.out.println("inside filter"+ request.getRequestURI());
+        String path = request.getRequestURI();
+        return path.equals("/api/v0/authenticate");
+    }*/
 }

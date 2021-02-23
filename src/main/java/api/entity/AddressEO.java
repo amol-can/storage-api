@@ -1,17 +1,13 @@
 package api.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
+//@Entity
 public class AddressEO {
-    @Id
-    @SequenceGenerator(name = "adr_seq", sequenceName = "adr_seq")
-    @GeneratedValue(generator = "adr_seq")
+   /* @Id
     private Long addressId;
     private String streetAddress;
     private String city;
     private String state;
     private String country;
-    private Integer zipCode;
+    private Integer zipCode;*/
 }
