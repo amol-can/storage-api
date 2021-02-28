@@ -1,5 +1,9 @@
 package api.entity;
 
+import api.model.Address;
+import api.model.Organization;
+import api.model.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,27 +12,26 @@ public class RegistrationEO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
-    private boolean status;
+
     @Embedded
-    private OrganizationEO organization;
+    private User user;
+
+    @Embedded
+    private Organization organization;
+
+    @Embedded
+    private Address address;
+
     // todo convert to Date
     private String timestamp;
 
     public RegistrationEO() {
     }
 
-    public RegistrationEO(String firstName, String lastName, String email, String phone, boolean status,
-                          OrganizationEO organization, String timestamp) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.status = status;
+    public RegistrationEO(User user, Organization organization, Address address, String timestamp) {
+        this.user = user;
         this.organization = organization;
+        this.address = address;
         this.timestamp = timestamp;
     }
 
@@ -36,28 +39,16 @@ public class RegistrationEO {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public User getUser() {
+        return user;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public OrganizationEO getOrganization() {
+    public Organization getOrganization() {
         return organization;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
     public String getTimestamp() {
@@ -65,45 +56,20 @@ public class RegistrationEO {
     }
 
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public void setOrganization(OrganizationEO organization) {
+    public void setOrganization(Organization organization) {
         this.organization = organization;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
-    @Override
-    public String toString() {
-        return "RegistrationEO{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", status=" + status +
-                ", organization=" + organization +
-                ", timestamp='" + timestamp + '\'' +
-                '}';
-    }
 }

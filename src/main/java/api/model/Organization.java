@@ -1,11 +1,11 @@
-package api.entity;
+package api.model;
 
 import javax.persistence.*;
 
+// TODO move to model class and remove Id
 @Embeddable
-public class OrganizationEO {
-    //@GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orgId;
+public class Organization {
+    private long orgId;
     private String companyName;
     private String businessType;
     private String companyEIN;
@@ -13,10 +13,10 @@ public class OrganizationEO {
     //private AddressEO address;
 
 
-    public OrganizationEO() {
+    public Organization() {
     }
 
-    public OrganizationEO(Long orgId, String companyName, String businessType, String companyEIN, String logoUrl) {
+    public Organization(long orgId, String companyName, String businessType, String companyEIN, String logoUrl) {
         this.orgId = orgId;
         this.companyName = companyName;
         this.businessType = businessType;
@@ -24,7 +24,7 @@ public class OrganizationEO {
         this.logoUrl = logoUrl;
     }
 
-    public Long getOrgId() {
+    public long getOrgId() {
         return orgId;
     }
 
