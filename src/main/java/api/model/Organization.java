@@ -5,7 +5,8 @@ import javax.persistence.*;
 // TODO move to model class and remove Id
 @Embeddable
 public class Organization {
-    private long orgId;
+    /*@Column(insertable = false, updatable = false)
+    private Long orgId;*/
     private String companyName;
     private String businessType;
     private String companyEIN;
@@ -16,17 +17,17 @@ public class Organization {
     public Organization() {
     }
 
-    public Organization(long orgId, String companyName, String businessType, String companyEIN, String logoUrl) {
-        this.orgId = orgId;
+    public Organization(String companyName, String businessType, String companyEIN, String logoUrl) {
+        //this.orgId = orgId;
         this.companyName = companyName;
         this.businessType = businessType;
         this.companyEIN = companyEIN;
         this.logoUrl = logoUrl;
     }
 
-    public long getOrgId() {
+    /*public long getOrgId() {
         return orgId;
-    }
+    }*/
 
     public String getCompanyName() {
         return companyName;
@@ -44,9 +45,7 @@ public class Organization {
         return logoUrl;
     }
 
-    public void setOrgId(Long orgId) {
-        this.orgId = orgId;
-    }
+
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
@@ -67,7 +66,7 @@ public class Organization {
     @Override
     public String toString() {
         return "OrganizationEO{" +
-                "orgId=" + orgId +
+
                 ", companyName='" + companyName + '\'' +
                 ", businessType='" + businessType + '\'' +
                 ", companyEIN='" + companyEIN + '\'' +

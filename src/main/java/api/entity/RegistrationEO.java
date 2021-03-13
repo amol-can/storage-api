@@ -22,6 +22,8 @@ public class RegistrationEO {
     @Embedded
     private Address address;
 
+    //todo path of logo and registrationStatus, SubPlan
+
     // todo convert to Date
     private String timestamp;
 

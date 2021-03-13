@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
-    private long addressId;
+    //private Long addressId;
     private String streetAddress;
     private String city;
     private String state;
@@ -14,8 +14,8 @@ public class Address {
 
     public Address(){}
 
-    public Address(long addressId, String streetAddress, String city, String state, String country, Integer zipCode) {
-        this.addressId = addressId;
+    public Address(String streetAddress, String city, String state, String country, Integer zipCode) {
+        //this.addressId = addressId;
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
@@ -23,13 +23,13 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-    public long getAddressId() {
+    /*public Long getAddressId() {
         return addressId;
     }
 
     public void setAddressId(long addressId) {
         this.addressId = addressId;
-    }
+    }*/
 
     public String getStreetAddress() {
         return streetAddress;

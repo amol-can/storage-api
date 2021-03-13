@@ -20,9 +20,15 @@ public class RegistrationController {
         return registrationService.getRegistrations();
     }
 
+    //todo send back the id of the reg user
     @PostMapping
     public void registerUser(@RequestBody RegistrationEO registration){
         registrationService.registerUser(registration);
+    }
+
+    @PostMapping(path = "/connect/{id}")
+    public void connectUser(@PathVariable Long id){
+        registrationService.completeRegistration(id,true);
     }
 
 }

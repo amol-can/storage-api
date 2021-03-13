@@ -1,10 +1,12 @@
 package api.model;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class User {
-    private long userId;
+    @Column(insertable = false, updatable = false)
+    private Long userId;
     private String userName;
     private String password;
     private String firstName;
@@ -19,7 +21,7 @@ public class User {
 
     }
 
-    public User(long userId, String userName, String password, String firstName, String lastName, String email, String mobileNumber, String userRole, String createdDate, boolean userStatus) {
+    public User(Long userId, String userName, String password, String firstName, String lastName, String email, String mobileNumber, String userRole, String createdDate, boolean userStatus) {
         this.userId = userId;
         this.userName = userName;
         this.password = password;
@@ -32,7 +34,7 @@ public class User {
         this.userStatus = userStatus;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
