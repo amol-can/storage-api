@@ -1,9 +1,9 @@
-package resources.subscription.service;
+package api.subscription.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import resources.subscription.entity.Subscription;
-import resources.subscription.repository.SubscriptionRepo;
+import api.subscription.entity.Subscription;
+import api.subscription.repository.SubscriptionRepo;
 
 import java.util.List;
 import java.util.Optional;

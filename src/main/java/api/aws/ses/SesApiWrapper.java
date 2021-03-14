@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Properties;
 
-public class EmailService {
+public class SesApiWrapper {
 
     private static Region region = Region.US_EAST_2;
     private static final SesClient client = SesClient.builder()

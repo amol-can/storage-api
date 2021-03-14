@@ -1,6 +1,6 @@
-package resources.subscription.service;
+package api.subscription.service;
 
-import resources.subscription.entity.Plan;
+import api.subscription.entity.Plan;
 
 import java.util.List;
 

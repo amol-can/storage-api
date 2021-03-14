@@ -1,12 +1,11 @@
-package resources.subscription.controller;
+package api.subscription.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import resources.subscription.entity.Plan;
-import resources.subscription.service.PlanService;
+import api.subscription.entity.Plan;
+import api.subscription.service.PlanService;
 
 import java.util.List;
 

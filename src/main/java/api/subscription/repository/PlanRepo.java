@@ -1,8 +1,8 @@
-package resources.subscription.repository;
+package api.subscription.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import resources.subscription.entity.Plan;
+import api.subscription.entity.Plan;
 
 @Repository
 public interface PlanRepo extends JpaRepository<Plan,Long> {

@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/subscription")
-public class PSubscriptionController {
+public class SubscriptionController {
     @Autowired
     SubscriptionService subscriptionService;
 

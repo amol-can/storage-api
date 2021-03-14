@@ -1,4 +1,4 @@
-package resources.subscription.entity;
+package api.subscription.entity;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package resources.subscription.entity;
+package api.subscription.entity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,20 +9,28 @@ public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subscriptionId;
+    /* TODO mapping
+    @OneToOne
+    @JoinColumn(name = "userId")*/
     private Long userId;
-    private Long planId;
+    @ManyToOne
+    @JoinColumn(name = "planIdRef", referencedColumnName = "planId")
+    private Plan plan;
+    private Date subscriptionPurchasedDate;
     private Date subscriptionStartDate;
-    private Date getSubscriptionEndDate;
+    private Date subscriptionEndDate;
 
     public Subscription(){
 
     }
 
-    public Subscription(Long userId, Long planId, Date subscriptionStartDate, Date getSubscriptionEndDate) {
+    public Subscription(Long userId, Plan plan, Date subscriptionPurchasedDate, Date subscriptionStartDate,
+                        Date subscriptionEndDate) {
         this.userId = userId;
-        this.planId = planId;
+        this.plan = plan;
+        this.subscriptionPurchasedDate = subscriptionPurchasedDate;
         this.subscriptionStartDate = subscriptionStartDate;
-        this.getSubscriptionEndDate = getSubscriptionEndDate;
+        this.subscriptionEndDate = subscriptionEndDate;
     }
 
     public Long getSubscriptionId() {
@@ -37,12 +45,20 @@ public class Subscription {
         this.userId = userId;
     }
 
-    public Long getPlanId() {
-        return planId;
+    public Plan getPlan() {
+        return plan;
     }
 
-    public void setPlanId(Long planId) {
-        this.planId = planId;
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+
+    public Date getSubscriptionPurchasedDate() {
+        return subscriptionPurchasedDate;
+    }
+
+    public void setSubscriptionPurchasedDate(Date subscriptionPurchasedDate) {
+        this.subscriptionPurchasedDate = subscriptionPurchasedDate;
     }
 
     public Date getSubscriptionStartDate() {
@@ -53,11 +69,11 @@ public class Subscription {
         this.subscriptionStartDate = subscriptionStartDate;
     }
 
-    public Date getGetSubscriptionEndDate() {
-        return getSubscriptionEndDate;
+    public Date getSubscriptionEndDate() {
+        return subscriptionEndDate;
     }
 
-    public void setGetSubscriptionEndDate(Date getSubscriptionEndDate) {
-        this.getSubscriptionEndDate = getSubscriptionEndDate;
+    public void setSubscriptionEndDate(Date subscriptionEndDate) {
+        this.subscriptionEndDate = subscriptionEndDate;
     }
 }
