@@ -26,15 +26,17 @@ public class RegistrationEO {
 
     // todo convert to Date
     private String timestamp;
+    private boolean registrationStatus;
 
     public RegistrationEO() {
     }
 
-    public RegistrationEO(User user, Organization organization, Address address, String timestamp) {
+    public RegistrationEO(User user, Organization organization, Address address, String timestamp, boolean registrationStatus) {
         this.user = user;
         this.organization = organization;
         this.address = address;
         this.timestamp = timestamp;
+        this.registrationStatus = registrationStatus;
     }
 
     public Long getId() {
@@ -57,6 +59,9 @@ public class RegistrationEO {
         return timestamp;
     }
 
+    public Boolean getRegistrationStatus() {
+        return registrationStatus;
+    }
 
     public void setUser(User user) {
         this.user = user;
@@ -74,4 +79,7 @@ public class RegistrationEO {
         this.timestamp = timestamp;
     }
 
+    public void setRegistrationStatus(boolean registrationStatus) {
+        this.registrationStatus = registrationStatus;
+    }
 }

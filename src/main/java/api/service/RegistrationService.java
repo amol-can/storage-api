@@ -27,16 +27,23 @@ public class RegistrationService {
     @Autowired
     OrgService orgService;
 
-    // TODO return regId
-    public void registerUser(RegistrationEO registration){
+    public Long registerUser(RegistrationEO registration){
         registrationRepository.save(registration);
+        return registration.getId();
     }
 
     public List<RegistrationEO> getRegistrations(){
         return registrationRepository.findAll();
     }
 
-    //TODO write new service API to get registration by email (regStatus = false)
+    //TODO get list and filter by email (regStatus = false)
+    public RegistrationEO getRegistrationByEmail(String email){
+        RegistrationEO registrationEO = registrationRepository.findByUserEmail(email);
+        if (registrationEO == null){
+            // TODO throw custom exception
+        }
+        return registrationEO;
+    }
 
     public boolean completeRegistration(Long regId, boolean isItFreeTrial){
         // add plan in case of payment
@@ -55,9 +62,6 @@ public class RegistrationService {
         OrgEO orgEO = new OrgEO(organization);
         UserEO userEO = new UserEO(user,address, orgEO);
         userService.addUser(userEO);
-
-
-        //orgService.addOrganization(orgEO);
 
         // TODO Subscription plan
 
